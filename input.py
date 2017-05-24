@@ -41,7 +41,7 @@ def load_data():
   """
 
   dirname = 'cifar-100-python'
-  origin = 'cifar-100-python.tar.gz'
+  origin = 'http://www.cs.toronto.edu/~kriz/cifar-100-python.tar.gz'
   path = get_file(dirname, origin=origin, untar=True)
 
   fpath = os.path.join(path, 'train')
@@ -81,7 +81,7 @@ def load_data():
   # np.save("train_label_sub", train_label_sub)
   # np.save("test_label_super", test_label_super)
   # np.save("test_label_sub", test_label_sub)
-  #test_data = distorted_inputs(test_data)
+  test_data = distorted_inputs(test_data)
   np.save("test_data", test_data)
   #train_data = distorted_inputs(train_data)
   np.save("train_data", train_data)
@@ -96,8 +96,8 @@ def distorted_inputs(images):
       print(i)
     reshaped_image = tf.cast(images[i], tf.float32)
 
-    height = 32
-    width = 32
+    height = 28
+    width = 28
 
     # Image processing for training the network. Note the many random
     # distortions applied to the image.
@@ -121,9 +121,7 @@ def distorted_inputs(images):
     # Set the shapes of tensors.
     float_image.set_shape([height, width, 3])
 
-
-
-    #tmp = float_image.eval()
+    images[i] = float_image.eval()
 
 
 
