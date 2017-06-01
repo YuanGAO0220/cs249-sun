@@ -219,7 +219,7 @@ def cnn_model(features, labels, mode):
   #                                 decay_rate = 0.1,
   #                                 staircase=True)
 
-  lr_decay_fn = lambda lr,global_step : tf.train.exponential_decay(lr, global_step, 4000, 0.2, staircase=False)
+  lr_decay_fn = lambda lr,global_step : tf.train.exponential_decay(lr, global_step, 6000, 0.2, staircase=True)
 
   # Configure the Training Op (for TRAIN mode)
   if mode == learn.ModeKeys.TRAIN:
