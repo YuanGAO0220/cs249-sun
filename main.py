@@ -14,7 +14,7 @@ from tensorflow.contrib.learn.python import SKCompat
 
 tf.logging.set_verbosity(tf.logging.INFO)
 
-#input.load_data()
+input.load_data()
 
 train_data = np.load("train_data.npy")
 #train_label_super = np.load("train_label_super.npy")
@@ -28,7 +28,7 @@ print (train_data.shape)
 
 # Create the Estimator
 mnist_classifier = SKCompat(learn.Estimator(
-    model_fn=train.cnn_model, model_dir="./model4"))
+    model_fn=train.cnn_model, model_dir="./model"))
 
 epoch = 50
 
