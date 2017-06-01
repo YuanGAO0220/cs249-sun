@@ -78,10 +78,10 @@ def load_data():
   #   with sess.as_default():
   #     test_data[i] = np.asarray(tf.image.per_image_standardization(test_data[i]).eval())
   # np.save("train_label_super", train_label_super)
-  # np.save("train_label_sub", train_label_sub)
+  np.save("train_label_sub", train_label_sub)
   # np.save("test_label_super", test_label_super)
-  # np.save("test_label_sub", test_label_sub)
-  test_data = distorted_inputs(test_data)
+  np.save("test_label_sub", test_label_sub)
+  # test_data = distorted_inputs(test_data)
   np.save("test_data", test_data)
   #train_data = distorted_inputs(train_data)
   np.save("train_data", train_data)
