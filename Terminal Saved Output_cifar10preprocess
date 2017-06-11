@@ -1,0 +1,735 @@
+Last login: Thu Jun  8 18:32:54 on ttys001
+Yuans-MacBook-Pro:~ yuan$ ssh -i "mykey.pem" ec2-user@ec2-34-211-79-252.us-west-2.compute.amazonaws.com
+Warning: Identity file mykey.pem not accessible: No such file or directory.
+Last login: Fri Jun  9 01:32:34 2017 from cpe-172-113-236-111.socal.res.rr.com
+
+=============================================================================
+       __|  __|_  )
+       _|  (     /   Deep Learning AMI for Amazon Linux
+      ___|\___|___|
+
+The README file for the AMI ➜➜➜➜➜➜➜➜➜➜➜➜➜➜➜➜➜➜➜➜  /home/ec2-user/src/README.md
+Tests for deep learning frameworks ➜➜➜➜➜➜➜➜➜➜➜➜   /home/ec2-user/src/bin
+=============================================================================
+
+Amazon Linux version 2017.03 is available.
+[ec2-user@ip-172-31-26-231 ~]$ ls
+proj  resnet_main.py  src
+[ec2-user@ip-172-31-26-231 ~]$ cd proj/
+[ec2-user@ip-172-31-26-231 proj]$ ls
+bazel-bin       bazel-out   bazel-testlogs    cifar-100-binary.tar.gz  resnet.zip  WORKSPACE
+bazel-genfiles  bazel-proj  cifar-100-binary  resnet                   start.sh
+[ec2-user@ip-172-31-26-231 proj]$ bazel build -c opt --config=cuda resnet/...
+WARNING: Config values are not defined in any .rc file: cuda
+INFO: Found 4 targets...
+INFO: Elapsed time: 0.120s, Critical Path: 0.00s
+[ec2-user@ip-172-31-26-231 proj]$ sh start.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+Traceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 24, in <module>
+    import resnet_model
+  File "/home/ec2-user/proj/resnet/resnet_model.py", line 67
+    """
+      ^
+IndentationError: expected an indented block
+[ec2-user@ip-172-31-26-231 proj]$ bazel build -c opt --config=cuda resnet/...
+WARNING: Config values are not defined in any .rc file: cuda
+INFO: Found 4 targets...
+INFO: Elapsed time: 0.100s, Critical Path: 0.00s
+[ec2-user@ip-172-31-26-231 proj]$ sh start.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+Traceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 212, in <module>
+    tf.app.run()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 205, in main
+    train(hps)
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 55, in train
+    model.build_graph()
+AttributeError: 'ResNet' object has no attribute 'build_graph'
+[ec2-user@ip-172-31-26-231 proj]$ bazel build -c opt --config=cuda resnet/...
+WARNING: Config values are not defined in any .rc file: cuda
+INFO: Found 4 targets...
+INFO: Elapsed time: 0.122s, Critical Path: 0.00s
+[ec2-user@ip-172-31-26-231 proj]$ sh start.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+Traceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 212, in <module>
+    tf.app.run()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 205, in main
+    train(hps)
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 55, in train
+    model.build_graph()
+  File "/home/ec2-user/proj/resnet/resnet_model.py", line 79, in build_graph
+    self._build_model()
+  File "/home/ec2-user/proj/resnet/resnet_model.py", line 103, in _build_model
+    kernel = _variable_with_weight_decay('weights',
+NameError: global name '_variable_with_weight_decay' is not defined
+[ec2-user@ip-172-31-26-231 proj]$ bazel build -c opt --config=cuda resnet/...
+WARNING: Config values are not defined in any .rc file: cuda
+INFO: Found 4 targets...
+INFO: Elapsed time: 0.116s, Critical Path: 0.00s
+[ec2-user@ip-172-31-26-231 proj]$ sh start.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+Traceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 212, in <module>
+    tf.app.run()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 205, in main
+    train(hps)
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 55, in train
+    model.build_graph()
+  File "/home/ec2-user/proj/resnet/resnet_model.py", line 80, in build_graph
+    self._build_model()
+  File "/home/ec2-user/proj/resnet/resnet_model.py", line 111, in _build_model
+    x = tf.nn.relu(x, name=scope.name)
+UnboundLocalError: local variable 'scope' referenced before assignment
+[ec2-user@ip-172-31-26-231 proj]$ bazel build -c opt --config=cuda resnet/...
+WARNING: Config values are not defined in any .rc file: cuda
+INFO: Found 4 targets...
+INFO: Elapsed time: 0.113s, Critical Path: 0.00s
+[ec2-user@ip-172-31-26-231 proj]$ sh start.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+Parsing GraphDef...
+Parsing RunMetadata...
+Parsing OpLog...
+Preparing Views...
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_micros                 0
+-min_params                 0
+-min_float_ops              0
+-device_regexes             .*
+-order_by                   name
+-account_type_regexes       _trainable_variables
+-start_name_regexes         .*
+-trim_name_regexes          
+-show_name_regexes          .*
+-hide_name_regexes          
+-account_displayed_op_only  true
+-select                     params
+-viz                        false
+-dump_to_file               
+
+==================Model Analysis Report======================
+_TFProfRoot (--/3.59m params)
+  conv1/biases (64, 64/64 params)
+  conv1/weights (5x5x3x64, 4.80k/4.80k params)
+  conv2/biases (64, 64/64 params)
+  conv2/weights (5x5x64x64, 102.40k/102.40k params)
+  local3/biases (768, 768/768 params)
+  local3/weights (4096x768, 3.15m/3.15m params)
+  local4/biases (384, 384/384 params)
+  local4/weights (768x384, 294.91k/294.91k params)
+  logit/DW (384x100, 38.40k/38.40k params)
+  logit/biases (100, 100/100 params)
+
+======================End of Report==========================
+total_params: 3587620
+Parsing GraphDef...
+Parsing RunMetadata...
+Parsing OpLog...
+Preparing Views...
+
+=========================Options=============================
+-max_depth                  10000
+-min_bytes                  0
+-min_micros                 0
+-min_params                 0
+-min_float_ops              1
+-device_regexes             .*
+-order_by                   float_ops
+-account_type_regexes       .*
+-start_name_regexes         .*
+-trim_name_regexes          
+-show_name_regexes          .*
+-hide_name_regexes          
+-account_displayed_op_only  true
+-select                     float_ops
+-viz                        false
+-dump_to_file               
+
+==================Model Analysis Report======================
+_TFProfRoot (0/10.65b flops)
+  conv2/Conv2D (6.71b/6.71b flops)
+  conv1/Conv2D (1.26b/1.26b flops)
+  gradients/local3/MatMul_grad/MatMul (805.31m/805.31m flops)
+  gradients/local3/MatMul_grad/MatMul_1 (805.31m/805.31m flops)
+  local3/MatMul (805.31m/805.31m flops)
+  gradients/local4/MatMul_grad/MatMul (75.50m/75.50m flops)
+  gradients/local4/MatMul_grad/MatMul_1 (75.50m/75.50m flops)
+  local4/MatMul (75.50m/75.50m flops)
+  logit/xw_plus_b (12.80k/9.84m flops)
+    logit/xw_plus_b/MatMul (9.83m/9.83m flops)
+  gradients/logit/xw_plus_b/MatMul_grad/MatMul (9.83m/9.83m flops)
+  gradients/logit/xw_plus_b/MatMul_grad/MatMul_1 (9.83m/9.83m flops)
+  conv1/BiasAdd (8.39m/8.39m flops)
+  conv2/BiasAdd (2.10m/2.10m flops)
+
+======================End of Report==========================
+INFO:tensorflow:Create CheckpointSaverHook.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:910] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GRID K520
+major: 3 minor: 0 memoryClockRate (GHz) 0.797
+pciBusID 0000:00:03.0
+Total memory: 3.94GiB
+Free memory: 3.91GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GRID K520, pci bus id: 0000:00:03.0)
+INFO:tensorflow:Saving checkpoints for 1 into /tmp/resnet_model/model.ckpt.
+INFO:tensorflow:loss = 4.61352, step = 1, precision = 0.015625
+INFO:tensorflow:global_step/sec: 5.11893
+INFO:tensorflow:loss = 4.10287, step = 101, precision = 0.078125
+INFO:tensorflow:global_step/sec: 5.08345
+INFO:tensorflow:loss = 4.01775, step = 201, precision = 0.101562
+INFO:tensorflow:global_step/sec: 5.07914
+INFO:tensorflow:loss = 3.73918, step = 301, precision = 0.101562
+INFO:tensorflow:global_step/sec: 5.08495
+INFO:tensorflow:loss = 3.74144, step = 401, precision = 0.132812
+INFO:tensorflow:global_step/sec: 5.09331
+INFO:tensorflow:loss = 3.60305, step = 501, precision = 0.140625
+INFO:tensorflow:global_step/sec: 5.07769
+INFO:tensorflow:loss = 3.54242, step = 601, precision = 0.164062
+INFO:tensorflow:global_step/sec: 5.08595
+INFO:tensorflow:loss = 3.41312, step = 701, precision = 0.164062
+INFO:tensorflow:global_step/sec: 5.09455
+INFO:tensorflow:loss = 3.5601, step = 801, precision = 0.15625
+INFO:tensorflow:global_step/sec: 5.09617
+INFO:tensorflow:loss = 3.43648, step = 901, precision = 0.164062
+INFO:tensorflow:global_step/sec: 5.07729
+INFO:tensorflow:loss = 3.32621, step = 1001, precision = 0.195312
+INFO:tensorflow:global_step/sec: 5.09893
+INFO:tensorflow:loss = 3.44048, step = 1101, precision = 0.1875
+INFO:tensorflow:global_step/sec: 5.09481
+INFO:tensorflow:loss = 3.15417, step = 1201, precision = 0.195312
+INFO:tensorflow:global_step/sec: 5.10223
+INFO:tensorflow:loss = 3.05728, step = 1301, precision = 0.210938
+INFO:tensorflow:global_step/sec: 5.09354
+INFO:tensorflow:loss = 3.14884, step = 1401, precision = 0.234375
+INFO:tensorflow:global_step/sec: 5.10358
+INFO:tensorflow:loss = 3.2713, step = 1501, precision = 0.226562
+INFO:tensorflow:global_step/sec: 5.0945
+INFO:tensorflow:loss = 3.44685, step = 1601, precision = 0.148438
+INFO:tensorflow:global_step/sec: 5.10077
+INFO:tensorflow:loss = 3.36782, step = 1701, precision = 0.210938
+INFO:tensorflow:global_step/sec: 5.0925
+INFO:tensorflow:loss = 3.17153, step = 1801, precision = 0.21875
+INFO:tensorflow:global_step/sec: 5.08726
+INFO:tensorflow:loss = 3.18971, step = 1901, precision = 0.242188
+INFO:tensorflow:global_step/sec: 5.09946
+INFO:tensorflow:loss = 3.10624, step = 2001, precision = 0.242188
+INFO:tensorflow:global_step/sec: 5.08998
+INFO:tensorflow:loss = 3.1419, step = 2101, precision = 0.289062
+INFO:tensorflow:global_step/sec: 5.08936
+INFO:tensorflow:loss = 3.20081, step = 2201, precision = 0.21875
+INFO:tensorflow:global_step/sec: 5.08973
+INFO:tensorflow:loss = 3.17166, step = 2301, precision = 0.242188
+INFO:tensorflow:global_step/sec: 5.10586
+INFO:tensorflow:loss = 2.84877, step = 2401, precision = 0.28125
+INFO:tensorflow:global_step/sec: 5.1018
+INFO:tensorflow:loss = 3.40995, step = 2501, precision = 0.195312
+INFO:tensorflow:global_step/sec: 5.10087
+INFO:tensorflow:loss = 3.188, step = 2601, precision = 0.234375
+INFO:tensorflow:global_step/sec: 5.0935
+INFO:tensorflow:loss = 3.13951, step = 2701, precision = 0.210938
+INFO:tensorflow:global_step/sec: 5.08609
+INFO:tensorflow:loss = 3.02768, step = 2801, precision = 0.242188
+INFO:tensorflow:global_step/sec: 5.10472
+INFO:tensorflow:loss = 3.1184, step = 2901, precision = 0.25
+INFO:tensorflow:global_step/sec: 5.09481
+INFO:tensorflow:loss = 3.31692, step = 3001, precision = 0.25
+INFO:tensorflow:Saving checkpoints for 3058 into /tmp/resnet_model/model.ckpt.
+INFO:tensorflow:global_step/sec: 5.08422
+INFO:tensorflow:loss = 3.29194, step = 3101, precision = 0.195312
+INFO:tensorflow:global_step/sec: 5.09468
+INFO:tensorflow:loss = 2.87444, step = 3201, precision = 0.3125
+INFO:tensorflow:global_step/sec: 5.10284
+INFO:tensorflow:loss = 3.17699, step = 3301, precision = 0.257812
+INFO:tensorflow:global_step/sec: 5.0893
+INFO:tensorflow:loss = 3.26971, step = 3401, precision = 0.234375
+INFO:tensorflow:global_step/sec: 5.09047
+INFO:tensorflow:loss = 3.03443, step = 3501, precision = 0.304688
+INFO:tensorflow:global_step/sec: 5.08913
+INFO:tensorflow:loss = 3.03735, step = 3601, precision = 0.21875
+INFO:tensorflow:global_step/sec: 5.08607
+INFO:tensorflow:loss = 3.13581, step = 3701, precision = 0.257812
+INFO:tensorflow:global_step/sec: 5.09446
+INFO:tensorflow:loss = 3.09241, step = 3801, precision = 0.273438
+INFO:tensorflow:global_step/sec: 5.09441
+INFO:tensorflow:loss = 3.44279, step = 3901, precision = 0.195312
+INFO:tensorflow:global_step/sec: 5.09034
+INFO:tensorflow:loss = 2.93781, step = 4001, precision = 0.25
+INFO:tensorflow:global_step/sec: 5.09161
+INFO:tensorflow:loss = 2.98594, step = 4101, precision = 0.304688
+INFO:tensorflow:global_step/sec: 5.09405
+INFO:tensorflow:loss = 3.02531, step = 4201, precision = 0.257812
+INFO:tensorflow:global_step/sec: 5.09564
+INFO:tensorflow:loss = 3.0708, step = 4301, precision = 0.289062
+INFO:tensorflow:global_step/sec: 5.10029
+INFO:tensorflow:loss = 2.96589, step = 4401, precision = 0.328125
+INFO:tensorflow:global_step/sec: 5.09122
+INFO:tensorflow:loss = 3.01529, step = 4501, precision = 0.257812
+INFO:tensorflow:global_step/sec: 5.09571
+INFO:tensorflow:loss = 3.11139, step = 4601, precision = 0.296875
+INFO:tensorflow:global_step/sec: 5.08894
+INFO:tensorflow:loss = 3.01554, step = 4701, precision = 0.304688
+INFO:tensorflow:global_step/sec: 5.10084
+INFO:tensorflow:loss = 2.94754, step = 4801, precision = 0.328125
+INFO:tensorflow:global_step/sec: 5.08838
+INFO:tensorflow:loss = 2.99006, step = 4901, precision = 0.265625
+INFO:tensorflow:global_step/sec: 5.08925
+INFO:tensorflow:loss = 3.175, step = 5001, precision = 0.242188
+INFO:tensorflow:global_step/sec: 5.08318
+INFO:tensorflow:loss = 2.66469, step = 5101, precision = 0.34375
+INFO:tensorflow:global_step/sec: 5.09327
+INFO:tensorflow:loss = 2.52552, step = 5201, precision = 0.4375
+INFO:tensorflow:global_step/sec: 5.08363
+INFO:tensorflow:loss = 2.53137, step = 5301, precision = 0.351562
+INFO:tensorflow:global_step/sec: 5.09979
+INFO:tensorflow:loss = 2.60115, step = 5401, precision = 0.398438
+INFO:tensorflow:global_step/sec: 5.09174
+INFO:tensorflow:loss = 2.93082, step = 5501, precision = 0.296875
+INFO:tensorflow:global_step/sec: 5.10049
+INFO:tensorflow:loss = 2.2192, step = 5601, precision = 0.4375
+INFO:tensorflow:global_step/sec: 5.10005
+INFO:tensorflow:loss = 2.45306, step = 5701, precision = 0.453125
+INFO:tensorflow:global_step/sec: 5.09743
+INFO:tensorflow:loss = 2.23349, step = 5801, precision = 0.46875
+INFO:tensorflow:global_step/sec: 5.09927
+INFO:tensorflow:loss = 2.4087, step = 5901, precision = 0.382812
+INFO:tensorflow:global_step/sec: 5.10392
+INFO:tensorflow:loss = 2.167, step = 6001, precision = 0.460938
+INFO:tensorflow:global_step/sec: 5.09492
+INFO:tensorflow:loss = 1.95589, step = 6101, precision = 0.46875
+INFO:tensorflow:Saving checkpoints for 6115 into /tmp/resnet_model/model.ckpt.
+INFO:tensorflow:global_step/sec: 5.09418
+INFO:tensorflow:loss = 2.39549, step = 6201, precision = 0.375
+INFO:tensorflow:global_step/sec: 5.10465
+INFO:tensorflow:loss = 2.08512, step = 6301, precision = 0.507812
+INFO:tensorflow:global_step/sec: 5.09662
+INFO:tensorflow:loss = 1.95776, step = 6401, precision = 0.46875
+INFO:tensorflow:global_step/sec: 5.08767
+INFO:tensorflow:loss = 2.07522, step = 6501, precision = 0.492188
+INFO:tensorflow:global_step/sec: 5.09421
+INFO:tensorflow:loss = 2.19725, step = 6601, precision = 0.4375
+INFO:tensorflow:global_step/sec: 5.0923
+INFO:tensorflow:loss = 2.01379, step = 6701, precision = 0.492188
+INFO:tensorflow:global_step/sec: 5.09229
+INFO:tensorflow:loss = 2.40417, step = 6801, precision = 0.414062
+INFO:tensorflow:global_step/sec: 5.07745
+INFO:tensorflow:loss = 1.97223, step = 6901, precision = 0.492188
+INFO:tensorflow:global_step/sec: 5.09919
+INFO:tensorflow:loss = 2.04717, step = 7001, precision = 0.398438
+INFO:tensorflow:global_step/sec: 5.09933
+INFO:tensorflow:loss = 1.95681, step = 7101, precision = 0.515625
+INFO:tensorflow:global_step/sec: 5.09291
+INFO:tensorflow:loss = 1.76955, step = 7201, precision = 0.546875
+INFO:tensorflow:global_step/sec: 5.09139
+INFO:tensorflow:loss = 1.77299, step = 7301, precision = 0.492188
+INFO:tensorflow:global_step/sec: 5.09812
+INFO:tensorflow:loss = 2.15871, step = 7401, precision = 0.453125
+INFO:tensorflow:global_step/sec: 5.10357
+INFO:tensorflow:loss = 1.72842, step = 7501, precision = 0.5
+INFO:tensorflow:global_step/sec: 5.09082
+INFO:tensorflow:loss = 2.0219, step = 7601, precision = 0.507812
+INFO:tensorflow:global_step/sec: 5.09933
+INFO:tensorflow:loss = 1.68212, step = 7701, precision = 0.53125
+INFO:tensorflow:global_step/sec: 5.09472
+INFO:tensorflow:loss = 1.78592, step = 7801, precision = 0.507812
+INFO:tensorflow:global_step/sec: 5.0913
+INFO:tensorflow:loss = 1.80153, step = 7901, precision = 0.539062
+INFO:tensorflow:global_step/sec: 5.08628
+INFO:tensorflow:loss = 2.26237, step = 8001, precision = 0.429688
+INFO:tensorflow:global_step/sec: 5.09195
+INFO:tensorflow:loss = 1.93, step = 8101, precision = 0.53125
+INFO:tensorflow:global_step/sec: 5.09581
+INFO:tensorflow:loss = 1.74585, step = 8201, precision = 0.523438
+INFO:tensorflow:global_step/sec: 5.09368
+INFO:tensorflow:loss = 1.94498, step = 8301, precision = 0.453125
+INFO:tensorflow:global_step/sec: 5.07808
+INFO:tensorflow:loss = 1.93646, step = 8401, precision = 0.421875
+INFO:tensorflow:global_step/sec: 5.09499
+INFO:tensorflow:loss = 1.66394, step = 8501, precision = 0.5
+INFO:tensorflow:global_step/sec: 5.10351
+INFO:tensorflow:loss = 2.02256, step = 8601, precision = 0.460938
+INFO:tensorflow:global_step/sec: 5.09418
+INFO:tensorflow:loss = 1.76976, step = 8701, precision = 0.515625
+INFO:tensorflow:global_step/sec: 5.09463
+INFO:tensorflow:loss = 1.81095, step = 8801, precision = 0.523438
+INFO:tensorflow:global_step/sec: 5.09828
+INFO:tensorflow:loss = 1.81146, step = 8901, precision = 0.546875
+INFO:tensorflow:global_step/sec: 5.09544
+INFO:tensorflow:loss = 2.02656, step = 9001, precision = 0.476562
+INFO:tensorflow:global_step/sec: 5.09809
+INFO:tensorflow:loss = 1.73596, step = 9101, precision = 0.53125
+INFO:tensorflow:Saving checkpoints for 9172 into /tmp/resnet_model/model.ckpt.
+INFO:tensorflow:global_step/sec: 5.07895
+INFO:tensorflow:loss = 1.75978, step = 9201, precision = 0.476562
+INFO:tensorflow:global_step/sec: 5.09397
+INFO:tensorflow:loss = 2.04748, step = 9301, precision = 0.484375
+INFO:tensorflow:global_step/sec: 5.09486
+INFO:tensorflow:loss = 1.65824, step = 9401, precision = 0.53125
+INFO:tensorflow:global_step/sec: 5.08526
+INFO:tensorflow:loss = 1.85895, step = 9501, precision = 0.492188
+INFO:tensorflow:global_step/sec: 5.09576
+INFO:tensorflow:loss = 1.5006, step = 9601, precision = 0.578125
+INFO:tensorflow:global_step/sec: 5.09764
+INFO:tensorflow:loss = 1.81325, step = 9701, precision = 0.507812
+INFO:tensorflow:global_step/sec: 5.09415
+INFO:tensorflow:loss = 1.74807, step = 9801, precision = 0.507812
+INFO:tensorflow:global_step/sec: 5.09502
+INFO:tensorflow:loss = 1.91051, step = 9901, precision = 0.460938
+INFO:tensorflow:global_step/sec: 5.0903
+INFO:tensorflow:loss = 1.74482, step = 10001, precision = 0.5
+INFO:tensorflow:global_step/sec: 5.09314
+INFO:tensorflow:loss = 1.68052, step = 10101, precision = 0.515625
+INFO:tensorflow:global_step/sec: 5.09662
+INFO:tensorflow:loss = 1.51106, step = 10201, precision = 0.578125
+INFO:tensorflow:global_step/sec: 5.10128
+INFO:tensorflow:loss = 1.41717, step = 10301, precision = 0.554688
+INFO:tensorflow:global_step/sec: 5.09624
+INFO:tensorflow:loss = 1.29245, step = 10401, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.09979
+INFO:tensorflow:loss = 1.69539, step = 10501, precision = 0.570312
+INFO:tensorflow:global_step/sec: 5.09799
+INFO:tensorflow:loss = 1.54326, step = 10601, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.09649
+INFO:tensorflow:loss = 1.52912, step = 10701, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.09596
+INFO:tensorflow:loss = 1.35094, step = 10801, precision = 0.640625
+INFO:tensorflow:global_step/sec: 5.09502
+INFO:tensorflow:loss = 1.61814, step = 10901, precision = 0.53125
+INFO:tensorflow:global_step/sec: 5.09455
+INFO:tensorflow:loss = 1.52532, step = 11001, precision = 0.570312
+INFO:tensorflow:global_step/sec: 5.09497
+INFO:tensorflow:loss = 1.79502, step = 11101, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.10058
+INFO:tensorflow:loss = 1.39535, step = 11201, precision = 0.65625
+INFO:tensorflow:global_step/sec: 5.08983
+INFO:tensorflow:loss = 1.50882, step = 11301, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09472
+INFO:tensorflow:loss = 1.45924, step = 11401, precision = 0.617188
+INFO:tensorflow:global_step/sec: 5.09677
+INFO:tensorflow:loss = 1.41414, step = 11501, precision = 0.625
+INFO:tensorflow:global_step/sec: 5.07917
+INFO:tensorflow:loss = 1.93405, step = 11601, precision = 0.53125
+INFO:tensorflow:global_step/sec: 5.1024
+INFO:tensorflow:loss = 1.51316, step = 11701, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09392
+INFO:tensorflow:loss = 1.37267, step = 11801, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.10094
+INFO:tensorflow:loss = 1.60207, step = 11901, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.09869
+INFO:tensorflow:loss = 1.65447, step = 12001, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.0957
+INFO:tensorflow:loss = 1.6587, step = 12101, precision = 0.5625
+INFO:tensorflow:global_step/sec: 5.1023
+INFO:tensorflow:loss = 1.42415, step = 12201, precision = 0.601562
+INFO:tensorflow:Saving checkpoints for 12229 into /tmp/resnet_model/model.ckpt.
+INFO:tensorflow:global_step/sec: 5.08129
+INFO:tensorflow:loss = 1.21152, step = 12301, precision = 0.65625
+INFO:tensorflow:global_step/sec: 5.09782
+INFO:tensorflow:loss = 1.58257, step = 12401, precision = 0.53125
+INFO:tensorflow:global_step/sec: 5.0955
+INFO:tensorflow:loss = 1.58831, step = 12501, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09366
+INFO:tensorflow:loss = 1.55778, step = 12601, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.09538
+INFO:tensorflow:loss = 1.53455, step = 12701, precision = 0.617188
+INFO:tensorflow:global_step/sec: 5.0908
+INFO:tensorflow:loss = 1.70179, step = 12801, precision = 0.523438
+INFO:tensorflow:global_step/sec: 5.09927
+INFO:tensorflow:loss = 1.50088, step = 12901, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.09042
+INFO:tensorflow:loss = 1.45187, step = 13001, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.09452
+INFO:tensorflow:loss = 1.44383, step = 13101, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.07669
+INFO:tensorflow:loss = 1.41544, step = 13201, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.09948
+INFO:tensorflow:loss = 1.50953, step = 13301, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09155
+INFO:tensorflow:loss = 1.42256, step = 13401, precision = 0.570312
+INFO:tensorflow:global_step/sec: 5.09198
+INFO:tensorflow:loss = 1.64779, step = 13501, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.087
+INFO:tensorflow:loss = 1.69718, step = 13601, precision = 0.554688
+INFO:tensorflow:global_step/sec: 5.09933
+INFO:tensorflow:loss = 1.45883, step = 13701, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.08882
+INFO:tensorflow:loss = 1.31159, step = 13801, precision = 0.664062
+INFO:tensorflow:global_step/sec: 5.10082
+INFO:tensorflow:loss = 1.36974, step = 13901, precision = 0.648438
+INFO:tensorflow:global_step/sec: 5.09702
+INFO:tensorflow:loss = 1.53009, step = 14001, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.08967
+INFO:tensorflow:loss = 1.71167, step = 14101, precision = 0.5
+INFO:tensorflow:global_step/sec: 5.09815
+INFO:tensorflow:loss = 1.73462, step = 14201, precision = 0.53125
+INFO:tensorflow:global_step/sec: 5.09551
+INFO:tensorflow:loss = 1.70379, step = 14301, precision = 0.5625
+INFO:tensorflow:global_step/sec: 5.09525
+INFO:tensorflow:loss = 1.9799, step = 14401, precision = 0.484375
+INFO:tensorflow:global_step/sec: 5.09288
+INFO:tensorflow:loss = 1.59933, step = 14501, precision = 0.578125
+INFO:tensorflow:global_step/sec: 5.09737
+INFO:tensorflow:loss = 1.7148, step = 14601, precision = 0.5
+INFO:tensorflow:global_step/sec: 5.07924
+INFO:tensorflow:loss = 1.51567, step = 14701, precision = 0.617188
+INFO:tensorflow:global_step/sec: 5.08484
+INFO:tensorflow:loss = 1.452, step = 14801, precision = 0.617188
+INFO:tensorflow:global_step/sec: 5.0978
+INFO:tensorflow:loss = 1.80614, step = 14901, precision = 0.476562
+INFO:tensorflow:global_step/sec: 5.09225
+INFO:tensorflow:loss = 1.48943, step = 15001, precision = 0.539062
+INFO:tensorflow:global_step/sec: 5.09399
+INFO:tensorflow:loss = 1.68901, step = 15101, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.09204
+INFO:tensorflow:loss = 1.50096, step = 15201, precision = 0.601562
+INFO:tensorflow:Saving checkpoints for 15285 into /tmp/resnet_model/model.ckpt.
+INFO:tensorflow:global_step/sec: 5.08249
+INFO:tensorflow:loss = 1.47748, step = 15301, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.08769
+INFO:tensorflow:loss = 1.40584, step = 15401, precision = 0.625
+INFO:tensorflow:global_step/sec: 5.09568
+INFO:tensorflow:loss = 1.48224, step = 15501, precision = 0.578125
+INFO:tensorflow:global_step/sec: 5.08211
+INFO:tensorflow:loss = 1.50396, step = 15601, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09218
+INFO:tensorflow:loss = 1.38858, step = 15701, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09469
+INFO:tensorflow:loss = 1.39197, step = 15801, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.08951
+INFO:tensorflow:loss = 1.61446, step = 15901, precision = 0.492188
+INFO:tensorflow:global_step/sec: 5.0971
+INFO:tensorflow:loss = 1.33655, step = 16001, precision = 0.570312
+INFO:tensorflow:global_step/sec: 5.09334
+INFO:tensorflow:loss = 1.25048, step = 16101, precision = 0.664062
+INFO:tensorflow:global_step/sec: 5.09481
+INFO:tensorflow:loss = 1.67294, step = 16201, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.08078
+INFO:tensorflow:loss = 1.68772, step = 16301, precision = 0.539062
+INFO:tensorflow:global_step/sec: 5.08632
+INFO:tensorflow:loss = 1.55358, step = 16401, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.08689
+INFO:tensorflow:loss = 1.56488, step = 16501, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.09642
+INFO:tensorflow:loss = 1.22427, step = 16601, precision = 0.648438
+INFO:tensorflow:global_step/sec: 5.08547
+INFO:tensorflow:loss = 1.68626, step = 16701, precision = 0.625
+INFO:tensorflow:global_step/sec: 5.09455
+INFO:tensorflow:loss = 1.45956, step = 16801, precision = 0.625
+INFO:tensorflow:global_step/sec: 5.08926
+INFO:tensorflow:loss = 1.41667, step = 16901, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09645
+INFO:tensorflow:loss = 1.25987, step = 17001, precision = 0.632812
+INFO:tensorflow:global_step/sec: 5.08874
+INFO:tensorflow:loss = 1.70219, step = 17101, precision = 0.539062
+INFO:tensorflow:global_step/sec: 5.09348
+INFO:tensorflow:loss = 1.42501, step = 17201, precision = 0.65625
+INFO:tensorflow:global_step/sec: 5.07793
+INFO:tensorflow:loss = 1.45232, step = 17301, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.0951
+INFO:tensorflow:loss = 1.23093, step = 17401, precision = 0.617188
+INFO:tensorflow:global_step/sec: 5.0925
+INFO:tensorflow:loss = 1.68019, step = 17501, precision = 0.507812
+INFO:tensorflow:global_step/sec: 5.09044
+INFO:tensorflow:loss = 1.36059, step = 17601, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.08748
+INFO:tensorflow:loss = 1.5646, step = 17701, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.09316
+INFO:tensorflow:loss = 1.4369, step = 17801, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.08115
+INFO:tensorflow:loss = 1.4667, step = 17901, precision = 0.546875
+INFO:tensorflow:global_step/sec: 5.09794
+INFO:tensorflow:loss = 1.54974, step = 18001, precision = 0.585938
+INFO:tensorflow:global_step/sec: 5.09301
+INFO:tensorflow:loss = 1.49454, step = 18101, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.09033
+INFO:tensorflow:loss = 1.42271, step = 18201, precision = 0.5625
+INFO:tensorflow:global_step/sec: 5.09407
+INFO:tensorflow:loss = 1.60733, step = 18301, precision = 0.59375
+INFO:tensorflow:Saving checkpoints for 18340 into /tmp/resnet_model/model.ckpt.
+INFO:tensorflow:global_step/sec: 5.08161
+INFO:tensorflow:loss = 1.36761, step = 18401, precision = 0.59375
+INFO:tensorflow:global_step/sec: 5.08848
+INFO:tensorflow:loss = 1.42642, step = 18501, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.09485
+INFO:tensorflow:loss = 1.32947, step = 18601, precision = 0.617188
+INFO:tensorflow:global_step/sec: 5.09107
+INFO:tensorflow:loss = 1.7373, step = 18701, precision = 0.5
+INFO:tensorflow:global_step/sec: 5.09387
+INFO:tensorflow:loss = 1.32648, step = 18801, precision = 0.632812
+INFO:tensorflow:global_step/sec: 5.09284
+INFO:tensorflow:loss = 1.52813, step = 18901, precision = 0.5625
+INFO:tensorflow:global_step/sec: 5.09305
+INFO:tensorflow:loss = 1.53555, step = 19001, precision = 0.554688
+INFO:tensorflow:global_step/sec: 5.09124
+INFO:tensorflow:loss = 1.63305, step = 19101, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.09738
+INFO:tensorflow:loss = 1.50067, step = 19201, precision = 0.515625
+INFO:tensorflow:global_step/sec: 5.08788
+INFO:tensorflow:loss = 1.32155, step = 19301, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.09237
+INFO:tensorflow:loss = 1.44, step = 19401, precision = 0.601562
+INFO:tensorflow:global_step/sec: 5.08667
+INFO:tensorflow:loss = 1.32049, step = 19501, precision = 0.703125
+INFO:tensorflow:global_step/sec: 5.0861
+INFO:tensorflow:loss = 1.07201, step = 19601, precision = 0.6875
+INFO:tensorflow:global_step/sec: 5.09686
+INFO:tensorflow:loss = 1.47375, step = 19701, precision = 0.546875
+INFO:tensorflow:global_step/sec: 5.09371
+INFO:tensorflow:loss = 1.42114, step = 19801, precision = 0.609375
+INFO:tensorflow:global_step/sec: 5.09641
+INFO:tensorflow:loss = 1.3549, step = 19901, precision = 0.570312
+INFO:tensorflow:global_step/sec: 5.09937
+INFO:tensorflow:loss = 1.45858, step = 20001, precision = 0.617188
+INFO:tensorflow:global_step/sec: 5.09484
+INFO:tensorflow:loss = 1.49082, step = 20101, precision = 0.609375
+^CTraceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 212, in <module>
+    tf.app.run()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 205, in main
+    train(hps)
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 114, in train
+    mon_sess.run(model.train_op)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/training/monitored_session.py", line 462, in run
+    run_metadata=run_metadata)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/training/monitored_session.py", line 786, in run
+    run_metadata=run_metadata)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/training/monitored_session.py", line 744, in run
+    return self._sess.run(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/training/monitored_session.py", line 891, in run
+    run_metadata=run_metadata)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/training/monitored_session.py", line 744, in run
+    return self._sess.run(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 767, in run
+    run_metadata_ptr)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 965, in _run
+    feed_dict_string, options, run_metadata)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1015, in _do_run
+    target_list, options, run_metadata)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1022, in _do_call
+    return fn(*args)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/client/session.py", line 1004, in _run_fn
+    status, run_metadata)
+KeyboardInterrupt
+[ec2-user@ip-172-31-26-231 proj]$ touch eval.sh
+[ec2-user@ip-172-31-26-231 proj]$ vim eval.sh 
+[ec2-user@ip-172-31-26-231 proj]$ sh eval.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+Traceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 212, in <module>
+    tf.app.run()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 194, in main
+    num_classes=num_classes,
+UnboundLocalError: local variable 'num_classes' referenced before assignment
+[ec2-user@ip-172-31-26-231 proj]$ vim eval.sh 
+[ec2-user@ip-172-31-26-231 proj]$ sh eval.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+Traceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 212, in <module>
+    tf.app.run()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 207, in main
+    evaluate(hps)
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 120, in evaluate
+    FLAGS.dataset, FLAGS.eval_data_path, hps.batch_size, FLAGS.mode)
+  File "/home/ec2-user/proj/resnet/cifar_input.py", line 51, in build_input
+    data_files = tf.gfile.Glob(data_path)
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/lib/io/file_io.py", line 269, in get_matching_files
+    compat.as_bytes(filename), status)]
+  File "/usr/lib64/python2.7/contextlib.py", line 24, in __exit__
+    self.gen.next()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/framework/errors_impl.py", line 466, in raise_exception_on_not_ok_status
+    pywrap_tensorflow.TF_GetCode(status))
+tensorflow.python.framework.errors_impl.NotFoundError: cifar-100-bin
+[ec2-user@ip-172-31-26-231 proj]$ ls
+bazel-bin       bazel-out   bazel-testlogs    cifar-100-binary.tar.gz  resnet      start.sh
+bazel-genfiles  bazel-proj  cifar-100-binary  eval.sh                  resnet.zip  WORKSPACE
+[ec2-user@ip-172-31-26-231 proj]$ vim eval.sh 
+[ec2-user@ip-172-31-26-231 proj]$ sh eval.sh 
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcublas.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcudnn.so.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcufft.so.7.5 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcuda.so.1 locally
+I tensorflow/stream_executor/dso_loader.cc:135] successfully opened CUDA library libcurand.so.7.5 locally
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE3 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.1 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use SSE4.2 instructions, but these are available on your machine and could speed up CPU computations.
+W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn't compiled to use AVX instructions, but these are available on your machine and could speed up CPU computations.
+I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:910] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:885] Found device 0 with properties: 
+name: GRID K520
+major: 3 minor: 0 memoryClockRate (GHz) 0.797
+pciBusID 0000:00:03.0
+Total memory: 3.94GiB
+Free memory: 3.91GiB
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:906] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:916] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:975] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GRID K520, pci bus id: 0000:00:03.0)
+INFO:tensorflow:Loading checkpoint /tmp/resnet_model/model.ckpt-18340
+INFO:tensorflow:loss: 2.656, precision: 0.418, best precision: 0.418
+
+
+
+INFO:tensorflow:Loading checkpoint /tmp/resnet_model/model.ckpt-18340
+INFO:tensorflow:loss: 2.497, precision: 0.426, best precision: 0.426
+INFO:tensorflow:Loading checkpoint /tmp/resnet_model/model.ckpt-18340
+INFO:tensorflow:loss: 2.656, precision: 0.418, best precision: 0.426
+^CTraceback (most recent call last):
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 212, in <module>
+    tf.app.run()
+  File "/usr/lib/python2.7/dist-packages/tensorflow/python/platform/app.py", line 44, in run
+    _sys.exit(main(_sys.argv[:1] + flags_passthrough))
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 207, in main
+    evaluate(hps)
+  File "/home/ec2-user/proj/bazel-bin/resnet/resnet_main.runfiles/__main__/resnet/resnet_main.py", line 172, in evaluate
+    time.sleep(60)
+KeyboardInterrupt
+[ec2-user@ip-172-31-26-231 proj]$ 
