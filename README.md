@@ -1,4 +1,4 @@
-# cs249
+# CICAR-10 Model for training CIFAR-100
 
 prerequisite: 
 
