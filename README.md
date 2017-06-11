@@ -1,4 +1,4 @@
-# CICAR-10 Model for training CIFAR-100
+# CIFAR-10 Model for training CIFAR-100
 
 prerequisite: 
 
