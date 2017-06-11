@@ -1,3 +1,5 @@
+# ResNet Model for training CIFAR-100
+
 1. Install TensorFlow, Bazel.
 
 2. Download CIFAR-100 dataset.
